@@ -4,8 +4,11 @@
 #include <string>
 #include "queue.h"
 
-typedef std::vector<std::vector<int>> MazeDist;
-typedef std::vector<std::vector<long long>> MazePaths;
+typedef std::vector<int> DistRow;
+typedef std::vector<DistRow> MazeDist;
+typedef std::vector<long long> PathsRow;
+typedef std::vector<PathsRow> MazePaths;
+
 
 int main(int argc, char **argv)
 {
@@ -64,8 +67,8 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    MazeDist dist(height, std::vector<int>(width, -1));
-    MazePaths paths(height, std::vector<long long>(width, 0));
+    MazeDist dist(height, DistRow(width, -1));
+    MazePaths paths(height, PathsRow(width, 0));
 
     Queue *queue = queue_create();
 
